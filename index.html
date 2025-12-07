@@ -1,0 +1,730 @@
++<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Jagdish Patel - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 255, 0, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(45deg, #1a1a2e, #0f3460);
+            color: #00d4ff;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid #00d4ff;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            animation: scanline 4s infinite linear;
+        }
+
+        @keyframes scanline {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 0.5rem 0;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            font-weight: 300;
+        }
+
+        nav {
+            background: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid #00d4ff;
+            border-bottom: 1px solid #00d4ff;
+        }
+
+        nav a {
+            color: #00d4ff;
+            margin: 0 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 5px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #ff00ff, #00ff00, #00d4ff);
+            background-size: 200% 100%;
+            animation: borderGlow 3s infinite linear;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .section:hover {
+            border-color: rgba(0, 212, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .section h2 {
+            color: #00d4ff;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.5);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section h3 {
+            color: #ff00ff;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+            font-size: 0.7rem;
+        }
+
+        ul li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+            font-size: 0.6rem;
+        }
+
+        .project {
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            background: rgba(255, 0, 255, 0.15);
+            border-color: rgba(255, 0, 255, 0.5);
+        }
+
+        .project h3 {
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        footer {
+            background: linear-gradient(45deg, #1a1a2e, #0f3460);
+            color: #00d4ff;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 2px solid #00d4ff;
+            font-size: 0.7rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            font-weight: 300;
+        }
+
+        a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            color: #00d4ff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-details {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            border-color: rgba(0, 212, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .detail-label {
+            color: #00d4ff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item span:last-child {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .navigation-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .section-title {
+            color: #00d4ff;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .nav-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #ff00ff, #00ff00, #00d4ff);
+            background-size: 200% 100%;
+            animation: borderGlow 3s infinite linear;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .nav-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .nav-card h3 {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-card p {
+            font-size: 0.9rem;
+            color: #cccccc;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .back-button {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.6);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .certificate-item {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #ff00ff, #00ff00, #00d4ff);
+            background-size: 200% 100%;
+            animation: borderGlow 3s infinite linear;
+        }
+
+        .certificate-item:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .certificate-item h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .certificate-item p {
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            color: #cccccc;
+        }
+
+        .certificate-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 0, 255, 0.1);
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 5px;
+            color: #ff00ff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .certificate-link:hover {
+            background: rgba(255, 0, 255, 0.2);
+            border-color: rgba(255, 0, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem;
+            }
+            .hero-section {
+                padding: 2rem 1rem;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
+            .hero-details {
+                gap: 1rem;
+            }
+            .detail-item {
+                min-width: 150px;
+                padding: 0.75rem;
+            }
+            .navigation-section {
+                padding: 2rem 1rem;
+            }
+            .nav-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .nav-card {
+                padding: 1.5rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .certificate-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .certificate-item {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Krishna Jagdish Patel</h1>
+        <p>Frontend Developer | krishnajpatel2006@gmail.com | <a href="https://www.linkedin.com/in/krishna-patel-9b2164332" style="color: #ecf0f1;">LinkedIn</a> | [Your Portfolio URL Here]</p>
+    </header>
+
+    <div class="hero-section" id="hero">
+        <div class="hero-content">
+            <h2>Welcome to My Portfolio</h2>
+            <p class="hero-description">I'm Krishna Jagdish Patel, a passionate Frontend Developer specializing in creating modern, responsive web applications with cutting-edge technologies.</p>
+            <div class="hero-details">
+                <div class="detail-item">
+                    <span class="detail-label">Email:</span>
+                    <span>krishnajpatel2006@gmail.com</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">LinkedIn:</span>
+                    <a href="https://www.linkedin.com/in/krishna-patel-9b2164332">krishna-patel-9b2164332</a>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Current Role:</span>
+                    <span>Frontend Developer & Student</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-section">
+        <h2 class="section-title">Explore My Portfolio</h2>
+        <div class="nav-grid">
+            <a href="#summary" class="nav-card">
+                <span class="nav-icon">📋</span>
+                <h3>Summary</h3>
+                <p>Learn about my professional background and expertise.</p>
+            </a>
+            <a href="#skills" class="nav-card">
+                <span class="nav-icon">🛠️</span>
+                <h3>Skills</h3>
+                <p>Discover the technologies and tools I work with.</p>
+            </a>
+            <a href="#projects" class="nav-card">
+                <span class="nav-icon">💼</span>
+                <h3>Projects</h3>
+                <p>Explore my key projects and achievements.</p>
+            </a>
+            <a href="#education" class="nav-card">
+                <span class="nav-icon">🎓</span>
+                <h3>Education</h3>
+                <p>Check out my academic background and qualifications.</p>
+            </a>
+            <a href="#certificates" class="nav-card">
+                <span class="nav-icon">🏆</span>
+                <h3>Certificates</h3>
+                <p>View my certifications and professional credentials.</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="container" id="content-sections">
+        <div class="section" id="summary">
+            <h2>Professional Summary</h2>
+            <p>Highly motivated and results-driven Frontend Developer with a strong foundation in Semantic HTML5, Advanced CSS3 (Flexbox/Grid), and vanilla JavaScript. Proven ability to quickly adapt to modern technologies like React.js and Node.js. Currently a second-year student in AIDS, I excel in team leadership and project execution. Seeking to leverage strong UI/UX principles and collaborative skills to build scalable, responsive web applications at DataSpy Technologies.</p>
+        </div>
+        <div class="section" id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-category">
+                <h3>Frontend Core</h3>
+                <ul>
+                    <li>HTML5, CSS3, JavaScript (ES6+), Responsive Design</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Libraries/Frameworks</h3>
+                <ul>
+                    <li>React.js, Node.js</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Styling/Architecture</h3>
+                <ul>
+                    <li>CSS Grid, Flexbox, UI/UX Principles</li>
+                </ul>
+            </div>
+            <div class="skills-category">
+                <h3>Tools/Platform</h3>
+                <ul>
+                    <li>Git, GitHub, Firebase Hosting</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section" id="projects">
+            <h2>Key Projects & Experience</h2>
+            <div class="project">
+                <h3>Project Lead & Frontend Developer | Hackaholics Internship Portal (SIH Project)</h3>
+                <p><strong>Dates:</strong> Jan 2025 – Mar 2025</p>
+                <p><strong>Description:</strong> Led a team of six developers in designing and deploying the "Hackaholics Internship Portal" (<a href="https://krishnaa1926-bit.github.io/HACKAHOLICS-A/">krishnaa1926-bit.github.io/HACKAHOLICS-A</a>), a platform focused on AI-powered internship matching. Designed and implemented a highly responsive and mobile-friendly UI using HTML5 and CSS3 (Flexbox/Grid), ensuring optimal viewing across all devices. Managed the team's collaborative code base, deployment, and version control via GitHub, successfully leading the project to achieve selection for the college round.</p>
+            </div>
+            <div class="project">
+                <h3>Independent Development Project | College ID Card Replica</h3>
+                <p><strong>Dates:</strong> Nov 2024</p>
+                <p><strong>Description:</strong> Designed and deployed a pixel-perfect replica of the official college ID card (<a href="https://krishnaa1926.github.io/resume/">krishnaa1926.github.io/resume/</a>) for portfolio demonstration. Used advanced CSS layout techniques (including tables, images, and complex alignment) to achieve the exact visual accuracy and styling of a high-detail official document. Utilized pure HTML and CSS to manage all front and back details, validating a strong understanding of foundational frontend technologies. Practiced deployment and hosting protocols, showing familiarity with common live environment setups.</p>
+            </div>
+        </div>
+        <div class="section" id="education">
+            <h2>Education</h2>
+            <p><strong>Second Year, Bachelor of Technology in Artificial Intelligence and Data Science (AIDS)</strong></p>
+            <p>Zeal Education Society | Pune</p>
+        </div>
+        <div class="section" id="certificates">
+            <h2>Certificates</h2>
+            <div class="certificate-grid">
+                <div class="certificate-item">
+                    <h3>Certificate of Program Completion - Data Science and Artificial Intelligence</h3>
+                    <p><strong>Issuer:</strong> DataSpy Technologies</p>
+                    <p><strong>Date:</strong> September 24, 2025 to November 24, 2025</p>
+                    <p><strong>Description:</strong> Completed a two-month formal training program focused on Data Science and Artificial Intelligence methodologies and tools, issued by DataSpy Technologies.</p>
+                    <a href="Screenshot 2025-12-08 001652.png" class="certificate-link" target="_blank">View Certificate</a>
+                </div>
+                <div class="certificate-item">
+                    <h3>Certificate of Completion - The Ultimate Job Ready Data Science Course</h3>
+                    <p><strong>Issuer:</strong> CodeWithHarry</p>
+                    <p><strong>Date:</strong> November 6, 2025</p>
+                    <p><strong>Description:</strong> Successfully completed a comprehensive, job-focused course on Data Science fundamentals, indicating readiness for industry application.</p>
+                    <a href="The_Ultimate_Job_Ready_Data_Science_Course_Certificate.pdf" class="certificate-link" target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Krishna Jagdish Patel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const navCards = document.querySelectorAll('.nav-card');
+        const contentSections = document.getElementById('content-sections');
+        const heroSection = document.querySelector('.hero-section');
+        const navigationSection = document.querySelector('.navigation-section');
+        const allSections = document.querySelectorAll('.section');
+
+        // Function to show content section
+        function showSection(sectionId) {
+            // Hide hero and navigation
+            heroSection.style.display = 'none';
+            navigationSection.style.display = 'none';
+
+            // Show content sections container
+            contentSections.style.display = 'block';
+
+            // Hide all sections first
+            allSections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Function to show home page
+        function showHome() {
+            // Show hero and navigation
+            heroSection.style.display = 'block';
+            navigationSection.style.display = 'block';
+
+            // Hide content sections
+            contentSections.style.display = 'none';
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add click event listeners to navigation cards
+        navCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href) {
+                    const sectionId = href.substring(1); // Remove the '#'
+                    showSection(sectionId);
+                }
+            });
+        });
+
+        // Add back button functionality
+        function addBackButton() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                // Check if back button already exists
+                if (!section.querySelector('.back-button')) {
+                    const backButton = document.createElement('a');
+                    backButton.className = 'back-button';
+                    backButton.textContent = '← Back to Home';
+                    backButton.href = '#';
+                    backButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showHome();
+                    });
+                    section.appendChild(backButton);
+                }
+            });
+        }
+
+        // Initialize back buttons
+        addBackButton();
+
+        // Handle browser back button
+        window.addEventListener('popstate', function() {
+            showHome();
+        });
+    </script>
+</body>
+</html>
